@@ -1,3 +1,6 @@
+### Excel tmp ###
+~$TestCases.xlsx
+
 /target/
 !.mvn/wrapper/maven-wrapper.jar
 

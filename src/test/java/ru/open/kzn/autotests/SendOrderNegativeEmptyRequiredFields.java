@@ -39,4 +39,30 @@ public class SendOrderNegativeEmptyRequiredFields {
 
     }
 
+    @Test
+    public void SendOrderEmptyStreet() {
+
+        $(By.name("street")).setValue("").pressEnter();
+        $(By.id("js_nofify")).shouldHave(text("Ошибка! Вы не заполнили \"Улица\""));
+
+    }
+
+    @Test
+    public void SendOrderEmptyFlat() {
+
+        $(By.name("flatnumber")).setValue("").pressEnter();
+        $(By.id("js_nofify")).shouldHave(text("Ошибка! Вы не заполнили \"Квартира\"\n"));
+
+    }
+
+    @Test
+    public void SendOrderEmptyHouse() {
+
+        $(By.name("housenumber")).setValue("").pressEnter();
+        $(By.id("js_nofify")).shouldHave(text("Ошибка! Вы не заполнили \"Дом\""));
+
+    }
+
+
+
 }

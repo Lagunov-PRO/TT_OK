@@ -27,7 +27,7 @@ public class SendOrderNegativeEmptyRequiredFields {
     public void SendOrderEmptyPersonalAccount() {
 
         $(By.name("personalaccount")).setValue("").pressEnter();
-        $(byText("Ошибка")).shouldBe(visible);
+        $(By.id("js_nofify")).shouldHave(text("Ошибка! Вы не заполнили \"Лицевой счет\""));
 
     }
 
@@ -35,7 +35,7 @@ public class SendOrderNegativeEmptyRequiredFields {
     public void SendOrderEmptyPhone() {
 
         $(By.name("phone")).setValue("").pressEnter();
-        $(byText("Ошибка")).shouldBe(visible);
+        $(By.id("js_nofify")).shouldHave(text("Ошибка! Вы не заполнили \"Номер телефона\""));
 
     }
 

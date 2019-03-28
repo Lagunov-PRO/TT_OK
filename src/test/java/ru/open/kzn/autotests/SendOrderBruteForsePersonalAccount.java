@@ -24,17 +24,21 @@ public class SendOrderBruteForsePersonalAccount {
 
     @Test
     public void SendOrderEmptyPersonalAccount() {
-//        int i = 1;
-//
-//        while
-        $(By.name("personalaccount")).setValue("1").pressEnter();
 
-        SelenideElement personalAccountError = $(By.id("js_nofify")).shouldHave(text("Ошибка"));
+        int i = 1;
+        String error = "Ошибка";
+        Boolean flag = Boolean.TRUE;
 
-        String result = personalAccountError.toString().substring(20, 27);
+        while (flag == Boolean.TRUE) {
+            String personalAccountGuess = Integer.toString(i);
+            $(By.name("personalaccount")).setValue(personalAccountGuess).pressEnter();
+            SelenideElement personalAccountError = $(By.id("js_nofify")).shouldHave(text("Ошибка"));
 
-        System.out.println(result);
-
+            String result = personalAccountError.toString().substring(20, 27);
+            if (result.equals(error)) { flag = Boolean.FALSE; }
+            i++;
+            System.out.println(result);
+        }
 
     }
 

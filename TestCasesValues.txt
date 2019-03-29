@@ -13,6 +13,7 @@ registeredUserPassword = "q6108r"
 js_nofify messages
 msgRegistrationSuccess = "Вы успешно зарегистрированы! Логин и пароль были высланы Вам на email. Приятной работы в системе."
 msgRegistrationEmailDuplicate = "Ошибка! Пользователь с таким email уже существует."
+msgRegistrationEmailEmpty = "Заполните корректно поле Email"
 msgProfileDeletionSuccess = "Пользователь удалён"
 msgLoginFail = "Неправильные логин и/или пароль"
 msgPasswordResetFail = "Данный email не зарегистрирован в системе"

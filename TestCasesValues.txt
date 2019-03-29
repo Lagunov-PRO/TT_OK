@@ -5,3 +5,8 @@ open.kzn.registered@gmail.com
 Незарегистрированный e-mail:
 open.kzn.unregistered@gmail.com
 236-4-123
+
+js_nofify messages
+Успешная регистрация:
+Вы успешно зарегистрированы! Логин и пароль были высланы Вам на email. Приятной работы в системе.
+

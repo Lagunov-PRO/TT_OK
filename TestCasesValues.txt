@@ -14,6 +14,7 @@ js_nofify messages
 msgRegistrationSuccess = "Вы успешно зарегистрированы! Логин и пароль были высланы Вам на email. Приятной работы в системе."
 msgProfileDeletionSuccess = "Пользователь удалён"
 msgLoginFail = "Неправильные логин и/или пароль"
+msgPasswordResetFail = "Данный email не зарегистрирован в системе"
 
 modal__header
 msgProfileDelitionConfirmation = "Удалить профиль?"

@@ -31,7 +31,10 @@ msgOrderInvalidPersonalAccountExplanation = "Ваши действия:
 msgOrderPersonalAccountInvalid = "Ваш номер лицевого счета не зарегистрирован в базе данных."
 msgOrderPersonalAccountEmpty = "Необходимо заполнить «Лицевой счёт»."
 msgOrderPersonalAccountNotDigits = "Значение «Лицевой счёт» должно быть целым числом."
-msgOrderPersonalAccountTooLarge = "414 Request-URI Too Large"
+
+msgOrderPersonalPhoneWrongFormat = "Неправильный формат. Номер телефона необходимо вводить в формате 7xxxxxxxxxx, 8xxxxxxxxxx, 2xxxxxx, 5xxxxxx, -;"
+
+msgOrderValueTooLarge = "414 Request-URI Too Large"
 
 modal__header
 msgProfileDelitionConfirmation = "Удалить профиль?"

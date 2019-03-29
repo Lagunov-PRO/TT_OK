@@ -9,7 +9,7 @@
 
 
 ## Артефакты
-1. Блок-схема сайта
+1. Блок-схема взаимодействий
       - [Авторизация](/TestCasesArtifacts/login.mindnode/QuickLook/Preview.jpg)
       - [Создание заявки](/TestCasesArtifacts/order.mindnode/QuickLook/Preview.jpg)
 - [ ] Диаграмма Исикавы

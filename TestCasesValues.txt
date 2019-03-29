@@ -1,10 +1,16 @@
 Зарегистрированный e-mail:
 open.kzn.registered@gmail.com
-236-4-123
+пароль: телефон из e-mail
 
 Незарегистрированный e-mail:
 open.kzn.unregistered@gmail.com
-236-4-123
+пароль: телефон из e-mail
+
+timestamp email:
+формат: 
+HH.mm.dd.MM.yyyy@lagunov.pro
+Пример:
+11.22.29.03.2019@lagunov.pro
 
 js_nofify messages
 msgRegistrationSucess = "Вы успешно зарегистрированы! Логин и пароль были высланы Вам на email. Приятной работы в системе."

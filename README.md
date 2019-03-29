@@ -13,6 +13,8 @@
       - [Авторизация](/TestCasesArtifacts/login.mindnode/QuickLook/Preview.jpg)
       - [Создание заявки](/TestCasesArtifacts/order.mindnode/QuickLook/Preview.jpg)
 - [ ] Диаграмма Исикавы
+- [ ] Таблица переходов
+
 
 ## Багрепорты
 * В процессы исследования обнаружены некоторые баги, на них заведены issue:<br>

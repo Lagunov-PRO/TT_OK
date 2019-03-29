@@ -7,15 +7,13 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
+import java.util.concurrent.TimeUnit;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class SendOrderBruteForsePersonalAccount {
-
-    @Rule
-    public ScreenShooter screenShooter = ScreenShooter.failedTests();
 
     @Before
     public void SendOrderOpen() {
@@ -23,21 +21,29 @@ public class SendOrderBruteForsePersonalAccount {
     }
 
     @Test
-    public void SendOrderEmptyPersonalAccount() {
+    public void SendOrderEmptyPersonalAccount() throws InterruptedException {
 
-        int i = 1;
-        String error = "Ошибка";
+        int i = 880;
+        String error = "Ваш номер лицевого счета не зарегистрирован в базе данных";
         Boolean flag = Boolean.TRUE;
 
         while (flag == Boolean.TRUE) {
             String personalAccountGuess = Integer.toString(i);
-            $(By.name("personalaccount")).setValue(personalAccountGuess).pressEnter();
+            $(By.name("personalaccount")).setValue(personalAccountGuess).pressTab();
+            $(By.name("lastname")).pressEnter();
             SelenideElement personalAccountError = $(By.id("js_nofify")).shouldHave(text("Ошибка"));
+            String result = personalAccountError.toString();
+            if (result.contains(error)) {
+                System.out.println(i);
+                $(By.name("personalaccount")).clear();
 
-            String result = personalAccountError.toString().substring(20, 27);
-            if (result.equals(error)) { flag = Boolean.FALSE; }
-            i++;
-            System.out.println(result);
+                if ((i % 50) == 0) SendOrderOpen();
+                i++;
+            }
+            else {
+                System.out.println("STOP");
+
+                flag = Boolean.FALSE; }
         }
 
     }

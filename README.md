@@ -2,6 +2,14 @@
 
 # Дисклеймер
 
+## Файлы
+1. Тест-кейсы: [TestCases.tsv](TestCases.tsv)
+2. Значения переменных для Тест-кейсов: [TestCasesValues.txt](TestCasesValues.txt)
+
+      
+      
+
+
 ## Именование тест-кейса
 Пример: login.02.1.P
 * login — имя тестируемого модуля

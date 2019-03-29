@@ -14,14 +14,14 @@ login.reg.0000	P	Регистрация нового пользователя
 			11	Открыть https://open.kzn.ru/cabinet/myprofile	Открыта https://open.kzn.ru/cabinet/myprofile
 			12	Кликнуть 'Удалить профиль'	Сообщение 'Удалить профиль?'
 			13	Кликнуть 'Да, удалить'	"Сообщение ""Пользователь удалён"", переход на главную"
-login.reg.0001	P	Регистрация на зарегистрированный email			
+login.reg.0001	N	Регистрация на зарегистрированный email			
 			1	Открыть https://open.kzn.ru/	Открыта главная
 			2	Нажать Зарегистрироваться	Открыта форма регистрации
 			3	Ввести registeredEmail, Enter	В сообщении есть текст msgRegistrationEmailDuplicate
 login.reg.0002	N	Регистрация не принимает невалидные email			
 			1	Открыть https://open.kzn.ru/	Открыта главная
 			2	Нажать Зарегистрироваться	Открыта форма регистрации
-			3	Ввести registeredEmail, Enter	В сообщении есть текст msgRegistrationEmailDuplicate
+			3	Перебрать все invalidEmails, Enter	В сообщении есть текст msgRegistrationEmailInvalid
 login.ent.0001	P	Вход с валидной парой логин/пароль			
 			1	Открыть https://open.kzn.ru/	Открыта главная
 			2	Нажать Войти	Открыта форма логина
@@ -77,4 +77,4 @@ login.rec.0002	P	Восстановление пароля с валидным e
 			20	Кликнуть 'Да, удалить'	"Сообщение ""Пользователь удалён"", переход на главную"
 login.rec.0003	N	Восстановление пароля через незарегистрированый email			
 			1	Открыть https://open.kzn.ru/recover	Открыта страница восстановления пароля
-			2	Ввести unregisteredEmail, нажать Enter	Cообщение с msgPasswordResetFail
+			2	Ввести unregisteredEmail, нажать Enter	Cообщение с msgPasswordResetUnregisted

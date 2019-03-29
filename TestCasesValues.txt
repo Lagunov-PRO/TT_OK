@@ -12,6 +12,10 @@ HH.mm.dd.MM.yyyy@lagunov.pro
 Пример:
 11.22.29.03.2019@lagunov.pro
 
+registeredUser
+open.kzn.registered@gmail.com
+пароль: q6108r
+
 js_nofify messages
 msgRegistrationSuccess = "Вы успешно зарегистрированы! Логин и пароль были высланы Вам на email. Приятной работы в системе."
 msgProfileDeletionSuccess = "Пользователь удалён"

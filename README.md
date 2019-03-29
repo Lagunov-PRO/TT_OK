@@ -7,11 +7,11 @@
 ------------ | -------------
 [TestCases.tsv](TestCases.tsv) | [TestCasesValues.txt](TestCasesValues.txt)
 
-Файл с тест-кейсами в формате *.tsv
+Файл с тест-кейсами в формате *.tsv<sup>[1](https://github.com/Lagunov-PRO/TT_OK/blob/master/README.md#1)</sup>
 Его преимущества:
 1. Нативно отображается прямо на гитхабе
 2. Формат текстовой, поэтому дифы и история изменений имеют смысл
-3. Открывается и редактируется в Excel <sup>[1](https://github.com/Lagunov-PRO/TT_OK/blob/master/README.md#1)</sup>
+3. Открывается и редактируется в Excel <sup>[2](https://github.com/Lagunov-PRO/TT_OK/blob/master/README.md#2)</sup>
 
 
 ### Колонки
@@ -50,9 +50,9 @@
 
 ## Примечания
 ###### 1
+Есть сконвертированный в xls файл [TestCases.xls](TestCases.xls) , но нужно следить за его обновлением
+###### 2
       - Нужно сначала открыть Excel
       - кинуть в него файл, (иначе он предлагает импорт с разбиением)
       - ctrl + A, Формат > Автиоподбор ширины столбца
-###### 2
-Есть сконвертированный в xls файл [TestCases.xls](TestCases.xls) , но нужно следить за его обновлением
             

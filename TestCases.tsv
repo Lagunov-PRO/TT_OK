@@ -78,5 +78,7 @@ login.rec.0002	P	Восстановление пароля с валидным e
 login.rec.0003	N	Восстановление пароля через незарегистрированый email			
 			1	Открыть https://open.kzn.ru/recover	Открыта страница восстановления пароля
 			2	Ввести unregisteredEmail, нажать Enter	Cообщение с msgPasswordResetUnregisted
-order.add.0001	P	Добавление заявки со всеми полями	1	Открыть https://open.kzn.ru/sendorder	Открыта страница Подача заявки
+order.add.0001	P	Добавление заявки со валидным лицевым счётом	1	Открыть https://open.kzn.ru/sendorder	Открыта страница Подача заявки
 			2	Ввести Лицевой счёт	
+order.add.0002	P	Добавление заявки с невалидным лицевым счётом	1	Открыть https://open.kzn.ru/sendorder	Открыта страница Подача заявки
+			2	Ввести любое число	Сообщение с msgOrderPersonalAccountInvalid

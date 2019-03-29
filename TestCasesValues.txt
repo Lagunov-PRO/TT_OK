@@ -1,12 +1,12 @@
-Зарегистрированный e-mail:
+registeredEmail
 open.kzn.registered@gmail.com
 пароль: телефон из e-mail
 
-Незарегистрированный e-mail:
+unregisteredEmail
 open.kzn.unregistered@gmail.com
 пароль: телефон из e-mail
 
-timestamp email:
+timestampEmail
 формат: 
 HH.mm.dd.MM.yyyy@lagunov.pro
 Пример:
@@ -15,3 +15,5 @@ HH.mm.dd.MM.yyyy@lagunov.pro
 js_nofify messages
 msgRegistrationSucess = "Вы успешно зарегистрированы! Логин и пароль были высланы Вам на email. Приятной работы в системе."
 
+modal__header
+msgProfileDelitionConfirmation = "Удалить профиль?"

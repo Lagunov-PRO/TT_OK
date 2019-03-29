@@ -17,7 +17,7 @@ msgRegistrationEmailEmpty = "Заполните корректно поле Emai
 msgRegistrationEmailInvalid = "Значение «Email» не является правильным email адресом."
 msgProfileDeletionSuccess = "Пользователь удалён"
 msgLoginFail = "Неправильные логин и/или пароль"
-msgPasswordResetFail = "Данный email не зарегистрирован в системе"
+msgPasswordResetUnregisted = "Данный email не зарегистрирован в системе"
 
 modal__header
 msgProfileDelitionConfirmation = "Удалить профиль?"

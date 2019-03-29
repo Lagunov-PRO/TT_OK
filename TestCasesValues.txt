@@ -15,6 +15,10 @@ msgRegistrationSuccess = "Вы успешно зарегистрированы! 
 msgRegistrationEmailDuplicate = "Ошибка! Пользователь с таким email уже существует."
 msgRegistrationEmailEmpty = "Заполните корректно поле Email"
 msgRegistrationEmailInvalid = "Значение «Email» не является правильным email адресом."
+
+msgRecoverRegisteredEmail = "Восстановление пароля прошло успешно!"
+msgRecoverSuccess = "Ваш пароль успешно изменён"
+
 msgProfileDeletionSuccess = "Пользователь удалён"
 msgLoginFail = "Неправильные логин и/или пароль"
 msgPasswordResetUnregisted = "Данный email не зарегистрирован в системе"

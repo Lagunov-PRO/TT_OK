@@ -28,9 +28,10 @@ msgOrderInvalidPersonalAccountExplanation = "Ваши действия:
 2. Если Вы нашли свою компанию в списке компаний подключенных к системе, то это значит, что в ближайшее время данная система для Вас будет доступна, а в настоящее время ведутся технические работы по запуску Вашего дома в систему.
 Служба поддержки: support@open.kzn.ru."
 
-msgOrderInvalidPersonalAccount = "Ваш номер лицевого счета не зарегистрирован в базе данных."
-msgOrderEmptyPersonalAccount = "Необходимо заполнить «Лицевой счёт»."
-msgOrderNotDigits = "Значение «Лицевой счёт» должно быть целым числом."
+msgOrderPersonalAccountInvalid = "Ваш номер лицевого счета не зарегистрирован в базе данных."
+msgOrderPersonalAccountEmpty = "Необходимо заполнить «Лицевой счёт»."
+msgOrderPersonalAccountNotDigits = "Значение «Лицевой счёт» должно быть целым числом."
+msgOrderPersonalAccountTooLarge = "414 Request-URI Too Large"
 
 modal__header
 msgProfileDelitionConfirmation = "Удалить профиль?"

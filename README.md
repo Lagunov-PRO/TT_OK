@@ -6,6 +6,13 @@
 1. Тест-кейсы: [TestCases.tsv](TestCases.tsv)
 2. Значения переменных для Тест-кейсов: [TestCasesValues.txt](TestCasesValues.txt)
 
+## Артефакты
+1. Блок-схема сайта
+      - [Авторизация](/TestCasesArtifacts/login.mindnode/QuickLook/Preview.jpg)
+      - [Создание заявки](/TestCasesArtifacts/order.mindnode/QuickLook/Preview.jpg)
+- [ ] Диаграмма Исикавы
+
+
       
       
 

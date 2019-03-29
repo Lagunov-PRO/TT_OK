@@ -14,8 +14,11 @@
       - [Создание заявки](/TestCasesArtifacts/order.mindnode/QuickLook/Preview.jpg)
 - [ ] Диаграмма Исикавы
 
-
-      
+## Багрепорты
+* В процессы исследования обнаружены некоторые баги, на них заведены issue:<br>
+[label:OK-bugreport](https://github.com/Lagunov-PRO/TT_OK/issues?q=is%3Aissue+is%3Aopen+label%3AOK-bugreport)<br>
+* Также обнаружены некоторые логические несоответствия:<br>
+[label:OK-enhancement](https://github.com/Lagunov-PRO/TT_OK/issues?q=is%3Aissue+is%3Aopen+label%3AOK-enhancement)
       
 
 ## Формат файлы

@@ -15,6 +15,7 @@ public class App
     {
 
 
+        System.out.println( "Hello World!" );
         DateTimeFormatter month = DateTimeFormatter.ofPattern( "MM" );
         LocalDateTime todayDate = LocalDateTime.now();
         String todayMonth = todayDate.format(month);

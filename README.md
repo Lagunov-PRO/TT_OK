@@ -7,6 +7,11 @@
 ------------ | -------------
 [TestCases.tsv](TestCases.tsv) | [TestCasesValues.txt](TestCasesValues.txt)
 
+Файл с тест-кейсами в формате *.tsv
+Его преимущества:
+1. Нативно отображается прямо на гитхабе
+2. Формат текстовой, поэтому дифы и история изменений имеют смысл
+3. Открывается и редактируется в Excel
 
 ## Артефакты
 1. Блок-схема взаимодействий
@@ -21,14 +26,6 @@
 [label:OK-bugreport](https://github.com/Lagunov-PRO/TT_OK/issues?q=is%3Aissue+is%3Aopen+label%3AOK-bugreport)<br>
 * Также обнаружены некоторые логические несоответствия:<br>
 [label:OK-enhancement](https://github.com/Lagunov-PRO/TT_OK/issues?q=is%3Aissue+is%3Aopen+label%3AOK-enhancement)
-      
-
-## Формат файлы
-Файл с тест-кейсами в формате *.tsv
-Его преимущества:
-1. Нативно отображается прямо на гитхабе
-2. Формат текстовой, поэтому дифы и история изменений имеют смысл
-3. Открывается и редактируется в Excel
 
 ## Именование тест-кейса
 Пример: login.02.1.P

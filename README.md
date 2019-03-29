@@ -7,7 +7,7 @@
 ------------ | -------------
 [TestCases.tsv](TestCases.tsv) | [TestCasesValues.txt](TestCasesValues.txt)
 
-Файл с тест-кейсами в формате *.tsv<sup>[1](https://github.com/Lagunov-PRO/TT_OK/blob/master/README.md#1)</sup>
+Файл с тест-кейсами в формате *.tsv <sup>[1](https://github.com/Lagunov-PRO/TT_OK/blob/master/README.md#1)</sup>
 Его преимущества:
 1. Нативно отображается прямо на гитхабе
 2. Формат текстовой, поэтому дифы и история изменений имеют смысл
@@ -50,7 +50,7 @@
 
 ## Примечания
 ###### 1
-Есть сконвертированный в xls файл [TestCases.xls](TestCases.xls) , но нужно следить за его обновлением
+Есть сконвертированный в xls файл [TestCases.xls](TestCases.xls) , но дата загрузки должна совпадать с TestCases.tsv, иначе неактуален
 ###### 2
       - Нужно сначала открыть Excel
       - кинуть в него файл, (иначе он предлагает импорт с разбиением)

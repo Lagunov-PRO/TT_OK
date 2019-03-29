@@ -17,12 +17,14 @@ login.00.P	Регистрация нового пользователя
 login.01.P	Вход с валидной парой логин/пароль			
 		1	Открыть https://open.kzn.ru/	Открыта главная
 		2	Нажать Войти	Открыта форма логина
-		3	Ввести registeredUser, пароль через ROT13	Открыта https://open.kzn.ru/cabinet/
-		4	Нажать 'Выход'	Открыта главная
+		3	Ввести registeredUserLogin, нажать Tab	Фокус переведён на поле пароля
+		4	Ввести registeredUserPassword через ROT13	Открыта https://open.kzn.ru/cabinet/
+		5	Нажать 'Выход'	Открыта главная
 login.01.N	Вход с валидным email и неправильным паролем			
 		1	Открыть https://open.kzn.ru/	Открыта главная
 		2	Нажать Войти	Открыта форма логина
-		3	Ввести registeredUser, пароль	Сообщение с msgLoginFail
+		3	Ввести registeredUserLogin, нажать Tab	Фокус переведён на поле пароля
+		4	Ввести registeredUserPassword	Сообщение с msgLoginFail
 login.02.1.P	Вход через сторонние сервисы: госуслуги			
 		1	Открыть https://open.kzn.ru/	Открыта главная
 		2	Нажать Войти	Открыта форма логина

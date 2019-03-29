@@ -21,5 +21,9 @@ msgPasswordResetFail = "Данный email не зарегистрирован �
 modal__header
 msgProfileDelitionConfirmation = "Удалить профиль?"
 
-validationCharacters
-valvalidationCharactersSpecial = "[|]`~<!-"
+invalidEmails
+invalidEmailsNoDot = "user@mailru"
+invalidEmailsNoAt = "usermail.ru"
+invalidEmailsWithSpace = "us er@mail.ru"
+invalidEmailsNoUser = "@mail.ru"
+invalidEmailsNoDomen = "user@.ru"

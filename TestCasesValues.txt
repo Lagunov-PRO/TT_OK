@@ -13,7 +13,8 @@ HH.mm.dd.MM.yyyy@lagunov.pro
 11.22.29.03.2019@lagunov.pro
 
 js_nofify messages
-msgRegistrationSucess = "Вы успешно зарегистрированы! Логин и пароль были высланы Вам на email. Приятной работы в системе."
+msgRegistrationSuccess = "Вы успешно зарегистрированы! Логин и пароль были высланы Вам на email. Приятной работы в системе."
+msgProfileDeletionSuccess = "Пользователь удалён"
 
 modal__header
 msgProfileDelitionConfirmation = "Удалить профиль?"

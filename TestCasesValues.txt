@@ -10,7 +10,7 @@ timestampEmail = (HH.mm.dd.MM.yyyy@lagunov.pro)
 registeredUserLogin = "open.kzn.registered@gmail.com"
 registeredUserPassword = "q6108r"
 
-js_nofify messages
+js_nofify
 msgRegistrationSuccess = "Вы успешно зарегистрированы! Логин и пароль были высланы Вам на email. Приятной работы в системе."
 msgRegistrationEmailDuplicate = "Ошибка! Пользователь с таким email уже существует."
 msgRegistrationEmailEmpty = "Заполните корректно поле Email"

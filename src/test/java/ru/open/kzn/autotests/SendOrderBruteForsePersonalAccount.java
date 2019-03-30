@@ -9,8 +9,7 @@ import org.openqa.selenium.By;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class SendOrderBruteForsePersonalAccount {
@@ -21,29 +20,44 @@ public class SendOrderBruteForsePersonalAccount {
     }
 
     @Test
-    public void SendOrderEmptyPersonalAccount() throws InterruptedException {
+    public void SendOrderEmptyPersonalAccount(){
 
-        int i = 880;
+        String companyCode = "810";
+        int uniqueCode = 7777777;
+        int digitsRequired = 10;
         String error = "Ваш номер лицевого счета не зарегистрирован в базе данных";
-        Boolean flag = Boolean.TRUE;
+        boolean flag = true;
 
-        while (flag == Boolean.TRUE) {
-            String personalAccountGuess = Integer.toString(i);
-            $(By.name("personalaccount")).setValue(personalAccountGuess).pressTab();
-            $(By.name("lastname")).pressEnter();
-            SelenideElement personalAccountError = $(By.id("js_nofify")).shouldHave(text("Ошибка"));
+        while (flag) {
+            if ((companyCode + uniqueCode).length() != digitsRequired) {
+                System.out.println("Personal account must have " + digitsRequired + " digits and you provided "+ (companyCode + uniqueCode).length());
+                break;
+            }
+            String personalAccountGuess = companyCode + uniqueCode;
+            $(By.name("personalaccount")).setValue(personalAccountGuess).pressEnter();
+            $(By.id("js_nofify")).shouldHave(cssValue("display", "block")).find(By.className("close")).click();
+            $(By.name("personalaccount")).pressEnter();
+            $(By.id("js_nofify")).find(By.className("text")).shouldHave(text("Ваш номер лицевого счета не зарегистрирован в базе данных."));
+            SelenideElement personalAccountError = $(By.id("js_nofify")).shouldHave(cssValue("display", "block")).find(By.className("text"));
             String result = personalAccountError.toString();
-            if (result.contains(error)) {
-                System.out.println(i);
-                $(By.name("personalaccount")).clear();
+            $(By.id("js_nofify")).shouldHave(cssValue("display", "block")).find(By.className("close")).click();
+            $(By.name("personalaccount")).clear();
+            $(By.name("personalaccount")).pressEnter();
+            $(By.id("js_nofify")).find(By.className("text")).shouldHave(text("Необходимо заполнить «Лицевой счёт»."));
 
-                if ((i % 50) == 0) SendOrderOpen();
-                i++;
+            System.out.println(result);
+
+            if (result.contains(error)) {
+                System.out.println(personalAccountGuess);
+                System.out.println(personalAccountError);
+
+                if ((uniqueCode % 50) == 0) SendOrderOpen();
+                uniqueCode--;
             }
             else {
-                System.out.println("STOP");
+                System.out.println("Found Valid Personal account: " + personalAccountGuess);
 
-                flag = Boolean.FALSE; }
+                flag = false; }
         }
 
     }

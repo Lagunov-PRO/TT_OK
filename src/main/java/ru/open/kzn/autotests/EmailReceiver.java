@@ -1,4 +1,4 @@
-package net.codejava.mail;
+package ru.open.kzn.autotests;
 
 import java.util.Properties;
 

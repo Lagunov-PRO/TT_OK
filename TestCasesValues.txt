@@ -4,11 +4,14 @@ registeredEmailPassword = (телефон как в e-mail)
 unregisteredEmail = "open.kzn.unregistered@gmail.com"
 unregisteredEmailPassword = (телефон как в e-mail)
 
-timestampEmail = (HH.mm.dd.MM.yyyy@lagunov.pro)
+timestampEmail = (HH.mm.ss.dd.MM.yyyy@lagunov.pro)
 Пример timestampEmail: 11.22.29.03.2019@lagunov.pro
 
 registeredUserLogin = "open.kzn.registered@gmail.com"
 registeredUserPassword = "q6108r"
+
+unregisteredUserLogin = "open.kzn.unregistered@gmail.com"
+unregisteredUserPassword = "ABC123"
 
 js_nofify
 msgRegistrationSuccess = "Вы успешно зарегистрированы! Логин и пароль были высланы Вам на email. Приятной работы в системе."
@@ -37,7 +40,7 @@ msgOrderPersonalPhoneWrongFormat = "Неправильный формат. Но�
 msgOrderValueTooLarge = "414 Request-URI Too Large"
 
 modal__header
-msgProfileDelitionConfirmation = "Удалить профиль?"
+msgProfileDeletionConfirmation = "Удалить профиль?"
 
 invalidEmails
 invalidEmailsNoDot = "user@mailru"

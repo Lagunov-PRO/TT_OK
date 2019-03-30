@@ -31,12 +31,13 @@ public class MainPageLogicalSlider {
     @Test
     public void MainPageSliderHeatStart() {
 
-        DateTimeFormatter month = DateTimeFormatter.ofPattern( "MM" );
-        LocalDateTime todayDate = LocalDateTime.now();
-        String todayMonth = todayDate.format(month);
-        int todayMonthDigit = Integer.parseInt(todayMonth);
-        List<Integer> monthsWithHeat = Arrays.asList(10, 11, 12, 1, 2, 3);
-        if (monthsWithHeat.contains(todayMonthDigit)) {
+        // Логическая проверка, что после окончания отопительного сезона, баннер про отопление нужн бы убрать
+        DateTimeFormatter month = DateTimeFormatter.ofPattern( "MM" ); // Паттерн для отрезания от даты только месяца
+        LocalDateTime todayDate = LocalDateTime.now(); // Получаем местное время
+        String todayMonth = todayDate.format(month); // Применяем паттерн
+        int todayMonthDigit = Integer.parseInt(todayMonth); // Преобразум месяц из строки в число
+        List<Integer> monthsWithHeat = Arrays.asList(10, 11, 12, 1, 2, 3); // Примерный список отопительных месяцев
+        if (monthsWithHeat.contains(todayMonthDigit)) {  // Если сегодня не отопительный сезон, то сообщения не должно быть
             $$(By.className("slide__text")).find(text("Старт отопительного сезона!")).shouldBe(disappear);
         }
         else {

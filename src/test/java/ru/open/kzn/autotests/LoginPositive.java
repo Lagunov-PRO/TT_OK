@@ -26,18 +26,19 @@ public class LoginPositive {
     public void LoginPositiveRegisteredUser() {
 
         $("#auth").find(byAttribute("data-ui","auth")).click();
-        $(By.name("username")).setValue("open.kzn.registered@gmail.com");
         String registeredUserLogin = "open.kzn.registered@gmail.com";
         String registeredUserPassword = "q6108r";
-        $(By.name("password")).setValue(rot13(registeredUserPassword)).pressEnter();
-        Assert.assertEquals("https://open.kzn.ru/cabinet/", url());
-        $(("#authInfo")).find((".username")).shouldHave(text(registeredUserLogin));
+        $(By.name("username")).setValue(registeredUserLogin);
+        $(By.name("password")).setValue(rot13(registeredUserPassword)).pressEnter(); // Восстанавливаем пароль
+        Assert.assertEquals("https://open.kzn.ru/cabinet/", url());  // Проверка, что открыта личный кабинет
+        $(("#authInfo")).find((".username")).shouldHave(text(registeredUserLogin));  // Проверка, что надпись в кабинете соответствует логину
 
-        $(("#onesignal-popover-allow-button")).click();
-        $(("#authInfo")).find((".btnExit")).click();
+        $(("#onesignal-popover-allow-button")).click();  // Клик на запрос Push-уведомлений, иначе Выход не нажать
+        $(("#authInfo")).find((".btnExit")).click(); // Выходим
 
     }
 
+    // Преобразование пароля, чтобы хотя бы плеинтекстом в гитхабе не лежал
     private static String rot13(String input) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < input.length(); i++) {

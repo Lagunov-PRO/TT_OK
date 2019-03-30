@@ -11,8 +11,7 @@ import org.openqa.selenium.By;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byAttribute;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.*;
@@ -37,35 +36,42 @@ public class RegistrationPositive {
         LocalDateTime currentDayTime = LocalDateTime.now();
         String timestampEmail = currentDayTime.format(timestamp);
         timestampEmail += "@lagunov.pro";
-//
-//        $("#auth").find(byAttribute("data-ui","registration")).click();
-//
-        clearBrowserCache();
+
+        $("#auth").find(byAttribute("data-ui","registration")).click();
+        $(byAttribute("data-ui", "email")).setValue(timestampEmail).pressEnter();
+
         open("https://mail.google.com/mail/h/1pq68r75kzvdr/?v%3Dlui");
         $("#identifierId").setValue(registeredEmail).pressEnter();
         $("#password input").setValue(registeredEmailPassword).pressEnter();
-        $$(By.className("ts")).get(1).click();
-        $(By.linkText(timestampEmail));
+
+        $(".searchPageLink").click();
+        $(".searchPageLink").click();
+        $(".searchPageLink").click();
+
+        $$(By.className("ts")).get(0).click();
+//        $(By.linkText(timestampEmail));
         String emailSource = source();
         String[] array1 = emailSource.split("( </span>)");
         String emailSourcePasswordPart = array1[1];
         int length = emailSourcePasswordPart.length();
-        String password = emailSourcePasswordPart.substring(length - 7, length);
-        System.out.println(password);
+        String timestampEmailPassword = emailSourcePasswordPart.substring(length - 7, length);
+        System.out.println(timestampEmailPassword);
+
+        open("https://open.kzn.ru/");
+        $("#auth").find(byAttribute("data-ui","auth")).click();
+        $(By.name("username")).setValue(timestampEmail).pressTab();
+        $(By.name("password")).setValue(timestampEmailPassword).pressEnter();
+        Assert.assertEquals("https://open.kzn.ru/cabinet/", url());
+        open("https://open.kzn.ru/cabinet/myprofile");
+        $(("#authInfo")).find((".username")).shouldHave(text(timestampEmail));
+        $(".onesignal-bell-launcher-button").isDisplayed();
+        $(("#onesignal-popover-allow-button")).isDisplayed();
+        $(("#onesignal-popover-allow-button")).click();
+        $("#deleteProfile").click();
+        $(byAttribute("data-ui","btnSuccess")).click();
+        $(By.id("js_nofify")).shouldHave(cssValue("display", "block")).find(By.className("text")).shouldHave(text("Пользователь удалён"));
 
 
-
-
-
-//        $(By.name("email")).setValue(timestampEmail);
-//        String registeredUserLogin = "open.kzn.registered@gmail.com";
-//        String registeredUserPassword = "q6108r";
-//        $(By.name("password")).setValue(rot13(registeredUserPassword)).pressEnter();
-//        Assert.assertEquals("https://open.kzn.ru/cabinet/", url());
-//        $(("#authInfo")).find((".username")).shouldHave(text(registeredUserLogin));
-//
-//        $(("#onesignal-popover-allow-button")).click();
-//        $(("#authInfo")).find((".btnExit")).click();
 
     }
 

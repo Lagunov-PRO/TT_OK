@@ -11,20 +11,19 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.url;
-import static org.openqa.selenium.By.*;
 
-public class LoginPositiveRegisteredUser {
+public class LoginPositive {
 
     @Rule
     public ScreenShooter screenShooter = ScreenShooter.failedTests();
 
     @Before
-    public void SendOrderOpen() {
+    public void MainOpen() {
         open("https://open.kzn.ru/");
     }
 
     @Test
-    public void SendOrderEmptyPersonalAccount() {
+    public void LoginPositiveRegisteredUser() {
 
         $("#auth").find(byAttribute("data-ui","auth")).click();
         $(By.name("username")).setValue("open.kzn.registered@gmail.com");

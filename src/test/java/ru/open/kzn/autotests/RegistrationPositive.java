@@ -15,6 +15,7 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byAttribute;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.*;
+import static org.junit.Assert.assertEquals;
 
 public class RegistrationPositive {
 
@@ -44,13 +45,16 @@ public class RegistrationPositive {
         $("#identifierId").setValue(registeredEmail).pressEnter();
         $("#password input").setValue(registeredEmailPassword).pressEnter();
 
-        $(".searchPageLink").click();
-        $(".searchPageLink").click();
-        $(".searchPageLink").click();
+        while (getElements(By.className("ts")).size() != 1) {
+
+            $(".searchPageLink").click();
+
+        }
 
         $$(By.className("ts")).get(0).click();
 //        $(By.linkText(timestampEmail));
         String emailSource = source();
+        $(byAttribute("value", "Delete")).click();
         String[] array1 = emailSource.split("( </span>)");
         String emailSourcePasswordPart = array1[1];
         int length = emailSourcePasswordPart.length();
@@ -59,18 +63,20 @@ public class RegistrationPositive {
 
         open("https://open.kzn.ru/");
         $("#auth").find(byAttribute("data-ui","auth")).click();
-        $(By.name("username")).setValue(timestampEmail).pressTab();
-        $(By.name("password")).setValue(timestampEmailPassword).pressEnter();
-        Assert.assertEquals("https://open.kzn.ru/cabinet/", url());
+        $(By.name("username")).val(timestampEmail).pressTab();
+        $(By.name("password")).val(timestampEmailPassword).pressEnter();
+        assertEquals("https://open.kzn.ru/cabinet/", url());
         open("https://open.kzn.ru/cabinet/myprofile");
         $(("#authInfo")).find((".username")).shouldHave(text(timestampEmail));
-        $(".onesignal-bell-launcher-button").isDisplayed();
-        $(("#onesignal-popover-allow-button")).isDisplayed();
+        $(".onesignal-bell-launcher-button").waitUntil(visible, 1000);;
+        $(("#onesignal-popover-allow-button")).waitUntil(visible, 1000);
         $(("#onesignal-popover-allow-button")).click();
+        $(("#onesignal-popover-allow-button")).waitUntil(disappears, 1000);
         $("#deleteProfile").click();
         $(byAttribute("data-ui","btnSuccess")).click();
-        $(By.id("js_nofify")).shouldHave(cssValue("display", "block")).find(By.className("text")).shouldHave(text("Пользователь удалён"));
-
+//        $(By.id("js_nofify")).shouldHave(cssValue("display", "block")).waitUntil(visible, 1000);;
+//        $(By.id("js_nofify")).shouldHave(text("Пользователь удалён"));
+//        $(By.id("js_nofify")).shouldHave(cssValue("display", "block")).find(By.className("close")).click();
 
 
     }

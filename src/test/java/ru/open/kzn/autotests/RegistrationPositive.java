@@ -1,15 +1,13 @@
 package ru.open.kzn.autotests;
 
-import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.junit.ScreenShooter;
-import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Base64;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byAttribute;
@@ -19,40 +17,36 @@ import static org.junit.Assert.assertEquals;
 
 public class RegistrationPositive {
 
+    private static String registeredEmail = "open.kzn.registered@gmail.com";
+    private static String rawPW = "MjM2LTQtMTIz";
+
 
     @Rule
     public ScreenShooter screenShooter = ScreenShooter.failedTests();
 
-    @Before
-    public void MainOpen() {
-        open("https://open.kzn.ru/");
-    }
 
     @Test
     public void RegistrationPositiveNewUser() {
+        // login.reg.0000
 
-        String registeredEmail = "open.kzn.registered@gmail.com";
-        String registeredEmailPassword = "236-4-123";
-        DateTimeFormatter timestamp = DateTimeFormatter.ofPattern( "HH.mm.dd.MM.yyyy" );
-        LocalDateTime currentDayTime = LocalDateTime.now();
-        String timestampEmail = currentDayTime.format(timestamp);
-        timestampEmail += "@lagunov.pro";
+        registerNewUser();
 
-        $("#auth").find(byAttribute("data-ui","registration")).click();
-        $(byAttribute("data-ui", "email")).setValue(timestampEmail).pressEnter();
 
-        open("https://mail.google.com/mail/h/1pq68r75kzvdr/?v%3Dlui");
+        open("https://mail.google.com/mail/h/1pq68r75kzvdr/?v%3Dlui");  // По этой ссылке откроется упрощённый интерфейс
         $("#identifierId").setValue(registeredEmail).pressEnter();
-        $("#password input").setValue(registeredEmailPassword).pressEnter();
+        $("#password input").setValue(pwDecode(rawPW)).pressEnter();
 
-        while (getElements(By.className("ts")).size() != 1) {
+        // Пока нет ни одного письма, обновляем стариницу.
+        // FIXME: Опасный цикл, что если там осталось другое письмо, а новое ещё не пришло?
+        while (getElements(By.className("ts")).size() == 0) {
 
             $(".searchPageLink").click();
 
         }
 
-        $$(By.className("ts")).get(0).click();
-//        $(By.linkText(timestampEmail));
+        $$(By.className("ts")).get(0).click(); // Кликаем на первое письмо
+//        $(By.linkText("?&cs=wh&v=b&to=" + timestampEmail));  //  FIXME: Проверка того, что письмо для правильного email открылось
+
         String emailSource = source();
         $(byAttribute("value", "Delete")).click();
         String[] array1 = emailSource.split("( </span>)");
@@ -68,19 +62,40 @@ public class RegistrationPositive {
         assertEquals("https://open.kzn.ru/cabinet/", url());
         open("https://open.kzn.ru/cabinet/myprofile");
         $(("#authInfo")).find((".username")).shouldHave(text(timestampEmail));
-        $(".onesignal-bell-launcher-button").waitUntil(visible, 1000);;
-        $(("#onesignal-popover-allow-button")).waitUntil(visible, 1000);
+        $(".onesignal-bell-launcher-button").waitUntil(visible, 10000);
+        $(("#onesignal-popover-allow-button")).waitUntil(visible, 5000);
         $(("#onesignal-popover-allow-button")).click();
-        $(("#onesignal-popover-allow-button")).waitUntil(disappears, 1000);
+        $(("#onesignal-popover-allow-button")).waitUntil(disappears, 5000);
         $("#deleteProfile").click();
         $(byAttribute("data-ui","btnSuccess")).click();
-//        $(By.id("js_nofify")).shouldHave(cssValue("display", "block")).waitUntil(visible, 1000);;
-//        $(By.id("js_nofify")).shouldHave(text("Пользователь удалён"));
-//        $(By.id("js_nofify")).shouldHave(cssValue("display", "block")).find(By.className("close")).click();
+        $(By.id("js_nofify")).shouldHave(cssValue("display", "block")).waitUntil(visible, 10000);;
+        $(By.id("js_nofify")).shouldHave(text("Пользователь удалён"));
+
 
 
     }
 
+    private static void registerNewUser() {
+        open("https://open.kzn.ru/");
+        $("#auth").find(byAttribute("data-ui","registration")).click();
+        $(byAttribute("data-ui", "email")).setValue(generateTimestampEmail()).pressEnter();
+
+    }
+
+    private static String generateTimestampEmail() {
+        DateTimeFormatter timestamp = DateTimeFormatter.ofPattern( "HH.mm.dd.MM.yyyy" );
+        LocalDateTime currentDayTime = LocalDateTime.now();
+        String timestampEmail = currentDayTime.format(timestamp);
+        timestampEmail += "@lagunov.pro";
+        return timestampEmail;
+    }
+
+    private static String pwDecode(String input) {
+
+        byte[] pwBytes = Base64.getDecoder().decode((input).getBytes());
+
+        return new String(pwBytes);
+    }
 
 
 }

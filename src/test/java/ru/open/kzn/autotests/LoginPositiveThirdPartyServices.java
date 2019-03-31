@@ -25,7 +25,7 @@ public class LoginPositiveThirdPartyServices {
 
     @Test
     public void loginPositiveThirdPartyServicesGosuslugi() {
-
+    // login.ent.0003.1
         $("#auth").find(byAttribute("data-ui","auth")).click();
         $(byAttribute("data-ui","esia")).click();
         switchTo().window(1);

@@ -24,12 +24,12 @@ public class MainPageLogicalSlider {
     public ScreenShooter screenShooter = ScreenShooter.failedTests();
 
     @Before
-    public void MainPageOpen() {
+    public void openMain() {
         open("https://open.kzn.ru/");
     }
 
     @Test
-    public void MainPageSliderHeatStart() {
+    public void checkSliderHeatActuality() {
 
         // Логическая проверка, что после окончания отопительного сезона, баннер про отопление нужн бы убрать
         DateTimeFormatter month = DateTimeFormatter.ofPattern( "MM" ); // Паттерн для отрезания от даты только месяца

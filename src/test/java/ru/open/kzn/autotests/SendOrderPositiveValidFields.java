@@ -16,7 +16,7 @@ public class SendOrderPositiveValidFields {
     public ScreenShooter screenShooter = ScreenShooter.failedTests();
 
     @Before
-    public void SendOrderOpen() {
+    public void openSendOrder() {
         open("https://open.kzn.ru/sendorder");
     }
 

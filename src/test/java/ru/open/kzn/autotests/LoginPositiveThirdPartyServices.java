@@ -19,7 +19,7 @@ public class LoginPositiveThirdPartyServices {
     public ScreenShooter screenShooter = ScreenShooter.failedTests();
 
     @Before
-    public void MainOpen() {
+    public void openMain() {
         open("https://open.kzn.ru/");
     }
 

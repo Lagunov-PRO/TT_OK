@@ -18,12 +18,12 @@ public class LoginPositive {
     public ScreenShooter screenShooter = ScreenShooter.failedTests();
 
     @Before
-    public void MainOpen() {
+    public void openMain() {
         open("https://open.kzn.ru/");
     }
 
     @Test
-    public void LoginPositiveRegisteredUser() {
+    public void loginPositiveRegisteredUser() {
 
         $("#auth").find(byAttribute("data-ui","auth")).click();
         String registeredUserLogin = "open.kzn.registered@gmail.com";

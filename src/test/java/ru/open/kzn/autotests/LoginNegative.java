@@ -20,7 +20,7 @@ public class LoginNegative {
     public ScreenShooter screenShooter = ScreenShooter.failedTests();
 
     @Before
-    public void SendOrderOpen() {
+    public void openMain() {
         open("https://open.kzn.ru/");
     }
 

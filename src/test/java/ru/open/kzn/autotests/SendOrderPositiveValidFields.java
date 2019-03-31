@@ -22,7 +22,7 @@ public class SendOrderPositiveValidFields {
 
     @Test
     public void sendOrderValidPersonalAccount() {
-
+    // order.snd.0001
         String sendOrderValidPersonalAccount = "8107777775";
         String msgOrderPersonalAccountUnregistered = "Ваш номер лицевого счета не зарегистрирован в базе данных.";
 

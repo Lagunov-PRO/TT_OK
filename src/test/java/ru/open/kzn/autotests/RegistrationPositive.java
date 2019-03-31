@@ -29,7 +29,7 @@ public class RegistrationPositive {
 
 
     @Test
-    public void RegistrationPositiveNewUser() {
+    public void registrationPositiveNewUser() {
         // login.reg.0000
 
         String timestampEmail = generateTimestampEmail();

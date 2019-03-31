@@ -21,7 +21,7 @@ public class SendOrderNegativeEmptyRequiredFields {
     }
 
     @Test
-    public void SendOrderEmptyPersonalAccount() {
+    public void sendOrderEmptyPersonalAccount() {
 
         $(By.name("personalaccount")).setValue("").pressEnter();
         $(By.id("js_nofify")).shouldHave(text("Ошибка! Вы не заполнили \"Лицевой счет\""));
@@ -29,7 +29,7 @@ public class SendOrderNegativeEmptyRequiredFields {
     }
 
     @Test
-    public void SendOrderEmptyPhone() {
+    public void sendOrderEmptyPhone() {
 
         $(By.name("phone")).setValue("").pressEnter();
         $(By.id("js_nofify")).shouldHave(text("Ошибка! Вы не заполнили \"Номер телефона\""));
@@ -37,7 +37,7 @@ public class SendOrderNegativeEmptyRequiredFields {
     }
 
     @Test
-    public void SendOrderEmptyStreet() {
+    public void sendOrderEmptyStreet() {
 
         $(By.name("street")).setValue("").pressEnter();
         $(By.id("js_nofify")).shouldHave(text("Ошибка! Вы не заполнили \"Улица\""));
@@ -45,7 +45,7 @@ public class SendOrderNegativeEmptyRequiredFields {
     }
 
     @Test
-    public void SendOrderEmptyFlat() {
+    public void sendOrderEmptyFlat() {
 
         $(By.name("flatnumber")).setValue("").pressEnter();
         $(By.id("js_nofify")).shouldHave(text("Ошибка! Вы не заполнили \"Квартира\"\n"));
@@ -53,7 +53,7 @@ public class SendOrderNegativeEmptyRequiredFields {
     }
 
     @Test
-    public void SendOrderEmptyHouse() {
+    public void sendOrderEmptyHouse() {
 
         $(By.name("housenumber")).setValue("").pressEnter();
         $(By.id("js_nofify")).shouldHave(text("Ошибка! Вы не заполнили \"Дом\""));

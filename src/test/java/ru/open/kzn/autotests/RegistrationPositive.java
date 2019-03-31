@@ -2,7 +2,6 @@ package ru.open.kzn.autotests;
 
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.junit.ScreenShooter;
-import org.apache.commons.lang3.ObjectUtils;
 import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -49,7 +48,7 @@ public class RegistrationPositive {
     }
 
     private static String generateTimestampEmail() {
-        DateTimeFormatter timestamp = DateTimeFormatter.ofPattern( "HH.mm.dd.MM.yyyy" );
+        DateTimeFormatter timestamp = DateTimeFormatter.ofPattern( "HH.mm.ss_dd-MM-yyyy" );
         LocalDateTime currentDayTime = LocalDateTime.now();
         String timestampEmail = currentDayTime.format(timestamp);
         timestampEmail += "@lagunov.pro";
@@ -78,18 +77,15 @@ public class RegistrationPositive {
         while (messagesInbox != 0) {
 
             $$(By.className("ts")).get(messagesInbox - 1).click(); // Кликаем на нижнее письмо
-
             int emailLinkNumber = $$(By.tagName("span")).size();  // Определяем кол-во элементов с тегом span
-
             List<String> emailLinkTextList = new ArrayList<>();  // Создаём список
+
             while (emailLinkNumber != 0) {
 
                 SelenideElement emailLinkText = $$(By.tagName("span")).get(emailLinkNumber - 1);  // Получаем текст первого элемента
                 String emailLinkTextString = emailLinkText.toString();
                 emailLinkTextString = emailLinkTextString.replace("<span>", "").replace("</span>", "");
-
                 emailLinkTextList.add(emailLinkTextString);
-
                 emailLinkNumber--;
 
             }
@@ -99,15 +95,14 @@ public class RegistrationPositive {
                 if (emailLinkTextList.get(i).contains(timestampEmail)) {
 
                     newUserPassword = emailLinkTextList.get(i - 2);
-                    $(byAttribute("value", "Delete")).click();  // Удаляем подходящее письмо
-
+                    $(byAttribute("value", "Delete")).click();  // Удаляем письмо c найдённым паролем
 
                 }
             }
 
             $(".searchPageLink").click();  // Возврат к списку писем
 
-            messagesInbox--;
+            messagesInbox--;  // Уменьшаем индекс письма для перехода к следующему
 
         }
         return newUserPassword;
@@ -134,17 +129,12 @@ public class RegistrationPositive {
         $(("#onesignal-popover-allow-button")).waitUntil(disappears, 5000);
         $("#deleteProfile").click();
         $(byAttribute("data-ui","btnSuccess")).click();
-        $(By.id("js_nofify")).shouldHave(cssValue("display", "block")).waitUntil(visible, 1000);;
-//        $(By.id("js_nofify")).shouldHave(text("Пользователь удалён"));
-
+        $(By.id("js_nofify")).shouldHave(cssValue("display", "block")).waitUntil(visible, 1000).has(text("Профиль удален!"));
     }
 
     private static String pwDecode(String input) {
 
         byte[] pwBytes = Base64.getDecoder().decode((input).getBytes());
-
         return new String(pwBytes);
     }
-
-
 }

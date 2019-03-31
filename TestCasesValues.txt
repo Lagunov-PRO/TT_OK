@@ -13,6 +13,18 @@ registeredUserPassword = "q6108r"
 unregisteredUserLogin = "open.kzn.unregistered@gmail.com"
 unregisteredUserPassword = "ABC123"
 
+sendOrderInvalidValues
+sendOrderInvalidPersonalAccountValues
+sendOrderInvalidPersonalAccountLetters = "ABCD"
+sendOrderInvalidPersonalAccountSymbols = "!@#$"
+sendOrderInvalidPersonalAccountUnregistered = "9999999999"
+
+
+
+sendOrderValidValues
+sendOrderValidPersonalAccount = "8107777775"
+
+
 invalidEmails
 invalidEmailsHasPlus = "us+er@mailru"
 invalidEmailsNoDot = "user@mailru"
@@ -30,7 +42,7 @@ msgRegistrationEmailInvalid = "Значение «Email» не является 
 msgRecoverRegisteredEmail = "Восстановление пароля прошло успешно!"
 msgRecoverSuccess = "Ваш пароль успешно изменён"
 
-msgProfileDeletionSuccess = "Пользователь удалён"
+msgProfileDeletionSuccess = "Профиль удалён"
 msgLoginFail = "Неправильные логин и/или пароль"
 msgPasswordResetUnregisted = "Данный email не зарегистрирован в системе"
 
@@ -39,7 +51,7 @@ msgOrderInvalidPersonalAccountExplanation = "Ваши действия:
 2. Если Вы нашли свою компанию в списке компаний подключенных к системе, то это значит, что в ближайшее время данная система для Вас будет доступна, а в настоящее время ведутся технические работы по запуску Вашего дома в систему.
 Служба поддержки: support@open.kzn.ru."
 
-msgOrderPersonalAccountInvalid = "Ваш номер лицевого счета не зарегистрирован в базе данных."
+msgOrderPersonalAccountUnregistered = "Ваш номер лицевого счета не зарегистрирован в базе данных."
 msgOrderPersonalAccountEmpty = "Необходимо заполнить «Лицевой счёт»."
 msgOrderPersonalAccountNotDigits = "Значение «Лицевой счёт» должно быть целым числом."
 

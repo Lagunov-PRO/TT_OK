@@ -24,9 +24,10 @@
 1. Авторизация: [LoginNegative.java](/src/test/java/ru/open/kzn/autotests/LoginNegative.java)
 2. Отправка заявки: [SendOrderNegativeEmptyRequiredFields.java](/src/test/java/ru/open/kzn/autotests/SendOrderNegativeEmptyRequiredFields.java)
 
-## Логический тест-кейсы: 
+## Логические тест-кейсы: 
 1. Слайдер: [MainPageLogicalSlider.java](/src/test/java/ru/open/kzn/autotests/MainPageLogicalSlider.java)
 
+## Дисклеймер: 
 
 Файл с тест‑кейсами в двух форматах: *.tsv и *.csv <sup>[1](https://github.com/Lagunov-PRO/TT_OK/blob/master/README.md#1)</sup> <br>
 Преимущества *.tsv перед *.xls:

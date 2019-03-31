@@ -61,7 +61,6 @@ public class RegistrationPositiveExperimental {
 
                 emailLinkTextList.add(emailLinkTextString);
 
-//                System.out.println(emailLinkTextString);
                 emailLinkNumber--;
 //                $(byAttribute("value", "Delete")).click();
 
@@ -70,7 +69,7 @@ public class RegistrationPositiveExperimental {
             for (int i = 0; i < emailLinkTextList.size(); i++) {
                 if (emailLinkTextList.get(i).contains("21.37.30.03.2019@lagunov.pro")) {
 
-                    System.out.println(emailLinkTextList.get(i - 2));
+                    String newUserPassword = emailLinkTextList.get(i - 2);
                 }
                 }
 

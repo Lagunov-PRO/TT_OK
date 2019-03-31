@@ -1,13 +1,17 @@
 package ru.open.kzn.autotests;
 
+import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.junit.ScreenShooter;
+import org.apache.commons.lang3.ObjectUtils;
 import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byAttribute;
@@ -54,30 +58,61 @@ public class RegistrationPositive {
 
     private static String getPasswordFromEmail(String timestampEmail) {
 
+        String newUserPassword = "";
+
         open("https://mail.google.com/mail/h/1pq68r75kzvdr/?v%3Dlui");  // По этой ссылке откроется упрощённый интерфейс
         $("#identifierId").setValue(registeredEmail).pressEnter();
         $("#password input").setValue(pwDecode(rawPW)).pressEnter();
 
-        // Пока нет ни одного письма, обновляем стариницу.
-        // FIXME: Опасный цикл, что если там осталось другое письмо, а новое ещё не пришло?
-        while (getElements(By.className("ts")).size() == 0) {
+        $(".searchPageLink").click();
 
-            $(".searchPageLink").click();
+        // Если ящик пустой, ждём 5 секунд
+        if ($$(By.className("ts")).size() == 0) {
+
+            $(".searchPageLink").waitUntil(visible, 5000).click();
 
         }
 
-        $$(By.className("ts")).get(0).click(); // Кликаем на первое письмо
-//        $(By.linkText("?&cs=wh&v=b&to=" + timestampEmail));  //  FIXME: Проверка того, что письмо для правильного email открылось
 
-        String emailSource = source();
-        $(byAttribute("value", "Delete")).click();
-        String[] array1 = emailSource.split("( </span>)");
-        String emailSourcePasswordPart = array1[1];
-        int length = emailSourcePasswordPart.length();
-        String timestampEmailPassword = emailSourcePasswordPart.substring(length - 7, length);
-        System.out.println(timestampEmailPassword);
-        return timestampEmailPassword;
+        int messagesInbox = $$(By.className("ts")).size(); // Определяме кол-во писем
+        while (messagesInbox != 0) {
+
+            $$(By.className("ts")).get(messagesInbox - 1).click(); // Кликаем на нижнее письмо
+
+            int emailLinkNumber = $$(By.tagName("span")).size();  // Определяем кол-во элементов с тегом span
+
+            List<String> emailLinkTextList = new ArrayList<>();  // Создаём список
+            while (emailLinkNumber != 0) {
+
+                SelenideElement emailLinkText = $$(By.tagName("span")).get(emailLinkNumber - 1);  // Получаем текст первого элемента
+                String emailLinkTextString = emailLinkText.toString();
+                emailLinkTextString = emailLinkTextString.replace("<span>", "").replace("</span>", "");
+
+                emailLinkTextList.add(emailLinkTextString);
+
+                emailLinkNumber--;
+
+            }
+
+            for (int i = 0; i < emailLinkTextList.size(); i++) {
+
+                if (emailLinkTextList.get(i).contains(timestampEmail)) {
+
+                    newUserPassword = emailLinkTextList.get(i - 2);
+                    $(byAttribute("value", "Delete")).click();  // Удаляем подходящее письмо
+
+
+                }
+            }
+
+            $(".searchPageLink").click();  // Возврат к списку писем
+
+            messagesInbox--;
+
+        }
+        return newUserPassword;
     }
+
 
     private static void loginNewUser(String timestampEmail, String timestampEmailPassword) {
 

@@ -42,26 +42,22 @@ public class RegistrationPositiveExperimental {
         $("#identifierId").setValue(registeredEmail).pressEnter();
         $("#password input").setValue(registeredEmailPassword).pressEnter();
 
-        // Пока нет ни одного письма, обновляем стариницу.
-        // FIXME: Опасный цикл, что если там осталось другое письмо, а новое ещё не пришло?
         $(".searchPageLink").click();
 
-//        System.out.println($$(By.className("ts")));
-//        System.out.println($$(By.className("ts")).size());
-//        System.out.println($$(By.className("ts")).get());
-        int messagesInbox = $$(By.className("ts")).size(); // Кликаем на первое письмо
+
+        int messagesInbox = $$(By.className("ts")).size(); // Определяме кол-во писем
         while (messagesInbox != 0) {
 
+            $$(By.className("ts")).get(messagesInbox - 1).click(); // Кликаем на нижнее письмо
 
-            $$(By.className("ts")).get(messagesInbox - 1).click(); // Кликаем на первое письмо
+            int emailLinkNumber = $$(By.tagName("span")).size();  // Определяем кол-во элементов с тегом span
 
-            int emailLinkNumber = $$(By.tagName("span")).size();
-
-            List<String> emailLinkTextList = new ArrayList<>();
+            List<String> emailLinkTextList = new ArrayList<>();  // Создаём список
             while (emailLinkNumber != 0) {
-                  //  FIXME: Проверка того, что письмо для правильного email открылось
-                SelenideElement emailLinkText = $$(By.tagName("span")).get(emailLinkNumber - 1);  //
+
+                SelenideElement emailLinkText = $$(By.tagName("span")).get(emailLinkNumber - 1);  // Получаем текст первого элемента
                 String emailLinkTextString = emailLinkText.toString();
+                emailLinkTextString = emailLinkTextString.replace("<span>", "").replace("</span>", "");
 
                 emailLinkTextList.add(emailLinkTextString);
 
@@ -83,41 +79,6 @@ public class RegistrationPositiveExperimental {
 
             }
 
-
-//            if (emailLinkTextString.contains("21.37.30.03.2019@lagunov.pro")) {
-
-
-
-            }
-
         }
-//        String emailSource = source();
-//        String[] array1 = emailSource.split("( </span>)");
-//        String emailSourcePasswordPart = array1[1];
-//        int length = emailSourcePasswordPart.length();
-//        String timestampEmailPassword = emailSourcePasswordPart.substring(length - 7, length);
-//        System.out.println(timestampEmailPassword);
-//
-//        open("https://open.kzn.ru/");
-//        $("#auth").find(byAttribute("data-ui","auth")).click();
-//        $(By.name("username")).val(timestampEmail).pressTab();
-//        $(By.name("password")).val(timestampEmailPassword).pressEnter();
-//        assertEquals("https://open.kzn.ru/cabinet/", url());
-//        open("https://open.kzn.ru/cabinet/myprofile");
-//        $(("#authInfo")).find((".username")).shouldHave(text(timestampEmail));
-//        $(".onesignal-bell-launcher-button").waitUntil(visible, 1000);
-//        $(("#onesignal-popover-allow-button")).waitUntil(visible, 1000);
-//        $(("#onesignal-popover-allow-button")).click();
-//        $(("#onesignal-popover-allow-button")).waitUntil(disappears, 1000);
-//        $("#deleteProfile").click();
-//        $(byAttribute("data-ui","btnSuccess")).click();
-//        $(By.id("js_nofify")).shouldHave(cssValue("display", "block")).waitUntil(visible, 1000);;
-//        $(By.id("js_nofify")).shouldHave(text("Пользователь удалён"));
-//        $(By.id("js_nofify")).shouldHave(cssValue("display", "block")).find(By.className("close")).click();
 
-
-//    }
-
-
-
-//}
+    }

@@ -4,8 +4,8 @@ registeredEmailPassword = (телефон как в e-mail)
 unregisteredEmail = "open.kzn.unregistered@gmail.com"
 unregisteredEmailPassword = (телефон как в e-mail)
 
-timestampEmail = (HH.mm.dd.MM.yyyy@lagunov.pro)
-Пример timestampEmail: 11.22.29.03.2019@lagunov.pro
+timestampEmail = (HH.mm.ss_dd-MM-yyyy@lagunov.pro)
+Пример timestampEmail: 11.22.34_29-03-2019@lagunov.pro
 
 registeredUserLogin = "open.kzn.registered@gmail.com"
 registeredUserPassword = "q6108r"

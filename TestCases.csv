@@ -13,7 +13,7 @@ login.reg.0000;P;Регистрация нового пользователя;;;
 ;;;10;Кликнуть 'Отмена';Окно закрыто
 ;;;11;Открыть https://open.kzn.ru/cabinet/myprofile;Открыта https://open.kzn.ru/cabinet/myprofile
 ;;;12;Кликнуть 'Удалить профиль';Сообщение 'Удалить профиль?'
-;;;13;Кликнуть 'Да, удалить';"Сообщение ""Пользователь удалён"", переход на главную"
+;;;13;Кликнуть 'Да, удалить';Сообщение msgProfileDeletionSuccess , переход на главную
 login.reg.0001;N;Регистрация на уже зарегистрированный email;;;
 ;;;1;Открыть https://open.kzn.ru/;Открыта главная
 ;;;2;Нажать Зарегистрироваться;Открыта форма регистрации
@@ -23,19 +23,19 @@ login.reg.0002;N;Регистрация не принимает невалидн
 ;;;2;Нажать Зарегистрироваться;Открыта форма регистрации
 ;;;3;Перебрать все invalidEmails, Enter;В сообщении есть текст msgRegistrationEmailInvalid
 login.ent.0001;P;Вход с валидной парой логин/пароль;;;
-;;LoginPositiveRegisteredUser;1;Открыть https://open.kzn.ru/;Открыта главная
+;;loginPositiveRegisteredUser;1;Открыть https://open.kzn.ru/;Открыта главная
 ;;;2;Нажать Войти;Открыта форма логина
 ;;;3;Ввести registeredUserLogin, нажать Tab;Фокус переведён на поле пароля
 ;;;4;Ввести registeredUserPassword через ROT13;Открыта https://open.kzn.ru/cabinet/
 ;;;5;Сравнить email на странице c registeredUserLogin;Email совпадают
 ;;;6;Нажать 'Выход';Открыта главная
-login.ent.0002;N;Вход с валидным email и неправильным паролем;;;
-;;LoginNegativeRegisteredUserWrongPassword;1;Открыть https://open.kzn.ru/;Открыта главная
+login.ent.0002;N;Вход с зарегистрированным email, но неправильным паролем;;;
+;;loginNegativeRegisteredUserWrongPassword;1;Открыть https://open.kzn.ru/;Открыта главная
 ;;;2;Нажать Войти;Открыта форма логина
 ;;;3;Ввести registeredUserLogin, нажать Tab;Фокус переведён на поле пароля
 ;;;4;Ввести registeredUserPassword;Сообщение с msgLoginFail
-login.ent.0002;N;Вход с невалидным email и паролем;;;
-;;LoginNegativeUnregisteredUser;1;Открыть https://open.kzn.ru/;Открыта главная
+login.ent.0003;N;Вход с невалидным email и паролем;;;
+;;loginNegativeUnregisteredUser;1;Открыть https://open.kzn.ru/;Открыта главная
 ;;;2;Нажать Войти;Открыта форма логина
 ;;;3;Ввести unregisteredUserLogin, нажать Tab;Фокус переведён на поле пароля
 ;;;4;Ввести registeredUserPassword;Сообщение с msgLoginFail
@@ -59,7 +59,7 @@ login.ent.0003.4;P;Вход через сторонние сервисы: OK;;;
 ;;;2;Нажать Войти;Открыта форма логина
 ;;;3;Кликнуть на ОК;Открыта страница логина ОК
 ;;;4;Закрыть OK;Открыта главная с окном логина
-login.rec.0002;P;Восстановление пароля с валидным email и ключом;;;
+login.rec.0001;P;Восстановление пароля с валидным email и ключом;;;
 ;;;1;Открыть https://open.kzn.ru/;Открыта главная
 ;;;2;Нажать Зарегистрироваться;Открыта форма регистрации
 ;;;3;Ввести timestampEmail, Enter;В сообщении есть текст msgRegistrationSucess
@@ -80,11 +80,22 @@ login.rec.0002;P;Восстановление пароля с валидным e
 ;;;17;Кликнуть 'Отмена';Окно закрыто
 ;;;18;Открыть https://open.kzn.ru/cabinet/myprofile;Открыта https://open.kzn.ru/cabinet/myprofile
 ;;;19;Кликнуть 'Удалить профиль';Сообщение 'Удалить профиль?'
-;;;20;Кликнуть 'Да, удалить';"Сообщение ""Пользователь удалён"", переход на главную"
-login.rec.0003;N;Восстановление пароля через незарегистрированый email;;;
+;;;20;Кликнуть 'Да, удалить';Сообщение msgProfileDeletionSuccess , переход на главную
+login.rec.0002;N;Восстановление пароля через незарегистрированый email;;;
 ;;;1;Открыть https://open.kzn.ru/recover;Открыта страница восстановления пароля
 ;;;2;Ввести unregisteredEmail, нажать Enter;Cообщение с msgPasswordResetUnregisted
-order.add.0001;P;Добавление заявки со валидным лицевым счётом;1;Открыть https://open.kzn.ru/sendorder;Открыта страница Подача заявки
-;;;2;Ввести Лицевой счёт;
-order.add.0002;P;Добавление заявки с невалидным лицевым счётом;1;Открыть https://open.kzn.ru/sendorder;Открыта страница Подача заявки
-;;;2;Ввести любое число;Сообщение с msgOrderPersonalAccountInvalid
+order.snd.0001;P;Попытка отправки заявки со валидным лицевым счётом;1;Открыть https://open.kzn.ru/sendorder;Открыта страница Подача заявки
+;;sendOrderValidPersonalAccount;2;Ввести sendOrderValidPersonalAccount, enter;Сообщение без msgOrderPersonalAccountUnregistered
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+order.snd.0002;N;Добавление заявки с невалидным лицевым счётом;1;Открыть https://open.kzn.ru/sendorder;Открыта страница Подача заявки
+;;;2;Перебрать все sendOrderInvalidValues, Enter;Сообщение с msgOrderPersonalAccountInvalid

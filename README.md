@@ -43,7 +43,7 @@
 [label:OK-enhancement](https://github.com/Lagunov-PRO/TT_OK/issues?q=is%3Aissue+is%3Aopen+label%3AOK-enhancement)
 
 ## Работа с email
-Так как тестирование проводится на production, базу захламлять не стоит.
+Так как тестирование проводится на production, базу захламлять я не стал.
 Почему-то столь удобные адреса gmail с "+" вида "user+test@gmail.com" считаются невалидными.
 Можно использовать адреса gmail с "." вида u.s.e.r@gmail.com но их ограниченное количество.
 Поэтому принято решение все тестовые регистрации проводить на адреса домена lagunov.pro.

@@ -1,4 +1,4 @@
-package ru.open.kzn.autotests;
+package ru.open.kzn.experimental;
 
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.junit.ScreenShooter;
@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byAttribute;
@@ -17,7 +19,7 @@ import static com.codeborne.selenide.WebDriverRunner.source;
 import static com.codeborne.selenide.WebDriverRunner.url;
 import static org.junit.Assert.assertEquals;
 
-public class RegistrationPositive2 {
+public class RegistrationPositiveExperimental {
 
 
     @Rule
@@ -54,16 +56,40 @@ public class RegistrationPositive2 {
             $$(By.className("ts")).get(messagesInbox - 1).click(); // Кликаем на первое письмо
 
             int emailLinkNumber = $$(By.tagName("span")).size();
+
+            List<String> emailLinkTextList = new ArrayList<>();
             while (emailLinkNumber != 0) {
                   //  FIXME: Проверка того, что письмо для правильного email открылось
                 SelenideElement emailLinkText = $$(By.tagName("span")).get(emailLinkNumber - 1);  //
                 String emailLinkTextString = emailLinkText.toString();
-                System.out.println(emailLinkTextString);
+
+                emailLinkTextList.add(emailLinkTextString);
+
+//                System.out.println(emailLinkTextString);
                 emailLinkNumber--;
 //                $(byAttribute("value", "Delete")).click();
-            }
+
+                }
+
+            for (int i = 0; i < emailLinkTextList.size(); i++) {
+                if (emailLinkTextList.get(i).contains("21.37.30.03.2019@lagunov.pro")) {
+
+                    System.out.println(emailLinkTextList.get(i - 2));
+                }
+                }
+
             $(".searchPageLink").click();
             messagesInbox--;
+
+            }
+
+
+//            if (emailLinkTextString.contains("21.37.30.03.2019@lagunov.pro")) {
+
+
+
+            }
+
         }
 //        String emailSource = source();
 //        String[] array1 = emailSource.split("( </span>)");
@@ -90,8 +116,8 @@ public class RegistrationPositive2 {
 //        $(By.id("js_nofify")).shouldHave(cssValue("display", "block")).find(By.className("close")).click();
 
 
-    }
+//    }
 
 
 
-}
+//}

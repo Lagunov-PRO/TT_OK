@@ -8,9 +8,10 @@
 # Дисклеймер
 
 ## Файлы
-Тест‑кейсы | Значения переменных для 	тест‑кейсов
+ Назначение | Файл 
 ------------ | -------------
-[TestCases.tsv](TestCases.tsv) == [TestCases.сsv](TestCases.сsv) | [TestCasesValues.txt](TestCasesValues.txt)
+Тест‑кейсы | [TestCases.tsv](TestCases.tsv) == [TestCases.сsv](TestCases.сsv)
+Значения переменных для тест‑кейсов | [TestCasesValues.txt](TestCasesValues.txt)
 
 Файл с тест‑кейсами в двух форматах: *.tsv и *.csv <sup>[1](https://github.com/Lagunov-PRO/TT_OK/blob/master/README.md#1)</sup> <br>
 Преимущества *.tsv перед *.xls:

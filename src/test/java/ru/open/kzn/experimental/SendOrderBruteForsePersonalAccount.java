@@ -1,4 +1,4 @@
-package ru.open.kzn.autotests;
+package ru.open.kzn.experimental;
 
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.junit.ScreenShooter;

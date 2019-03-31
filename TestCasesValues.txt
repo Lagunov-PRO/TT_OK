@@ -13,6 +13,14 @@ registeredUserPassword = "q6108r"
 unregisteredUserLogin = "open.kzn.unregistered@gmail.com"
 unregisteredUserPassword = "ABC123"
 
+invalidEmails
+invalidEmailsHasPlus = "us+er@mailru"
+invalidEmailsNoDot = "user@mailru"
+invalidEmailsNoAt = "usermail.ru"
+invalidEmailsWithSpace = "us er@mail.ru"
+invalidEmailsNoUser = "@mail.ru"
+invalidEmailsNoDomain = "user@.ru"
+
 js_nofify
 msgRegistrationSuccess = "Вы успешно зарегистрированы! Логин и пароль были высланы Вам на email. Приятной работы в системе."
 msgRegistrationEmailDuplicate = "Ошибка! Пользователь с таким email уже существует."
@@ -42,9 +50,4 @@ msgOrderValueTooLarge = "414 Request-URI Too Large"
 modal__header
 msgProfileDeletionConfirmation = "Удалить профиль?"
 
-invalidEmails
-invalidEmailsNoDot = "user@mailru"
-invalidEmailsNoAt = "usermail.ru"
-invalidEmailsWithSpace = "us er@mail.ru"
-invalidEmailsNoUser = "@mail.ru"
-invalidEmailsNoDomen = "user@.ru"
+

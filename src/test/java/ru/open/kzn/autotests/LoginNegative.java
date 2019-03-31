@@ -25,25 +25,25 @@ public class LoginNegative {
     }
 
     @Test
-    public void LoginNegativeUnregisteredUser() {
-
-        String registeredUserLogin = "open.kzn.registered@gmail.com";
+    public void loginNegativeRegisteredUserWrongPassword() {
+    // login.ent.0002
+        String registeredUserLogin = "open.kzn.unregistered@gmail.com";
         String registeredUserPassword = "q6108r";
         $("#auth").find(byAttribute("data-ui","auth")).click();
         $(By.name("username")).setValue(registeredUserLogin);
         $(By.name("password")).setValue(registeredUserPassword).pressEnter();
-        
+
         $(("#js_nofify")).shouldHave(text("Ошибка входа в личный кабинет"));
 
     }
 
     @Test
-    public void LoginNegativeRegisteredUserWrongPassword() {
-
+    public void loginNegativeUnregisteredUser() {
+        //login.ent.0003
         String unregisteredUserLogin = "open.kzn.unregistered@gmail.com";
-        String unregisteredUserPassword = "wrongpass";
+        String unregisteredUserPassword = "ABC123";
         $("#auth").find(byAttribute("data-ui","auth")).click();
-        $(By.name("username")).setValue("open.kzn.registered@gmail.com");
+        $(By.name("username")).setValue(unregisteredUserLogin);
         $(By.name("password")).setValue(unregisteredUserPassword).pressEnter();
 
         $(("#js_nofify")).shouldHave(text("Ошибка входа в личный кабинет"));

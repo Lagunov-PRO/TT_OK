@@ -55,6 +55,9 @@ msgOrderPersonalAccountUnregistered = "Ваш номер лицевого сче
 msgOrderPersonalAccountEmpty = "Необходимо заполнить «Лицевой счёт»."
 msgOrderPersonalAccountNotDigits = "Значение «Лицевой счёт» должно быть целым числом."
 
+msgOrderPhoneEmpty = "Ошибка! Вы не заполнили "Номер телефона""
+msgOrderStreetEmpty = Ошибка! Вы не заполнили "Улица"
+
 msgOrderPersonalPhoneWrongFormat = "Неправильный формат. Номер телефона необходимо вводить в формате 7xxxxxxxxxx, 8xxxxxxxxxx, 2xxxxxx, 5xxxxxx, -;"
 
 msgOrderValueTooLarge = "414 Request-URI Too Large"

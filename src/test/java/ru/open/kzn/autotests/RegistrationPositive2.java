@@ -23,11 +23,6 @@ public class RegistrationPositive2 {
     @Rule
     public ScreenShooter screenShooter = ScreenShooter.failedTests();
 
-    @Before
-    public void MainOpen() {
-        open("https://open.kzn.ru/");
-    }
-
     @Test
     public void RegistrationPositiveNewUser() {
         // login.reg.0000
@@ -47,23 +42,27 @@ public class RegistrationPositive2 {
 
         // Пока нет ни одного письма, обновляем стариницу.
         // FIXME: Опасный цикл, что если там осталось другое письмо, а новое ещё не пришло?
+        $(".searchPageLink").click();
+
+//        System.out.println($$(By.className("ts")));
+//        System.out.println($$(By.className("ts")).size());
+//        System.out.println($$(By.className("ts")).get());
         int messagesInbox = $$(By.className("ts")).size(); // Кликаем на первое письмо
-        while (getElements(By.className("ts")).size() == 0) {
+        while (messagesInbox != 0) {
 
 
-            $$(By.className("ts")).get(0).click(); // Кликаем на первое письмо
-            $$(By.className("ts")).get(messagesInbox); // Кликаем на первое письмо
+            $$(By.className("ts")).get(messagesInbox - 1).click(); // Кликаем на первое письмо
 
-            int emailLinkNumber = $$(By.tagName("span")).size() - 1;
+            int emailLinkNumber = $$(By.tagName("span")).size();
             while (emailLinkNumber != 0) {
                   //  FIXME: Проверка того, что письмо для правильного email открылось
-                SelenideElement emailLinkText = $$(By.tagName("span")).get(emailLinkNumber);  //
+                SelenideElement emailLinkText = $$(By.tagName("span")).get(emailLinkNumber - 1);  //
                 String emailLinkTextString = emailLinkText.toString();
                 System.out.println(emailLinkTextString);
-//                $(".searchPageLink").click();
                 emailLinkNumber--;
 //                $(byAttribute("value", "Delete")).click();
             }
+            $(".searchPageLink").click();
             messagesInbox--;
         }
 //        String emailSource = source();

@@ -1,6 +1,6 @@
 ﻿  ID;Type;Name;Step #;Steps;Expected
 login.reg.0000;P;Регистрация нового пользователя;;;
-;;RegistrationPositiveNewUser;1;Открыть https://open.kzn.ru/;Открыта главная
+;;registrationPositiveNewUser;1;Открыть https://open.kzn.ru/;Открыта главная
 ;;;2;Нажать Зарегистрироваться;Открыта форма регистрации
 ;;;3;Ввести timestampEmail, Enter;В сообщении есть текст msgRegistrationSucess
 ;;;3;Проверить почтовый ящик registeredEmail;Есть письмо от no-reply@opencity.pro с темой 'Регистрация'
@@ -40,7 +40,7 @@ login.ent.0003;N;Вход с невалидным email и паролем;;;
 ;;;3;Ввести unregisteredUserLogin, нажать Tab;Фокус переведён на поле пароля
 ;;;4;Ввести registeredUserPassword;Сообщение с msgLoginFail
 login.ent.0003.1;P;Вход через сторонние сервисы: госуслуги;;;
-;;;1;Открыть https://open.kzn.ru/;Открыта главная
+;;loginPositiveThirdPartyServicesGosuslugi;1;Открыть https://open.kzn.ru/;Открыта главная
 ;;;2;Нажать Войти;Открыта форма логина
 ;;;3;Кликнуть на Госуслуги;Открыта страница логина Госуслуг
 ;;;4;Закрыть госуслуги;Открыта главная с окном логина
@@ -86,16 +86,11 @@ login.rec.0002;N;Восстановление пароля через незар
 ;;;2;Ввести unregisteredEmail, нажать Enter;Cообщение с msgPasswordResetUnregisted
 order.snd.0001;P;Попытка отправки заявки со валидным лицевым счётом;1;Открыть https://open.kzn.ru/sendorder;Открыта страница Подача заявки
 ;;sendOrderValidPersonalAccount;2;Ввести sendOrderValidPersonalAccount, enter;Сообщение без msgOrderPersonalAccountUnregistered
-;;;;;
-;;;;;
-;;;;;
-;;;;;
-;;;;;
-;;;;;
-;;;;;
-;;;;;
-;;;;;
-;;;;;
-;;;;;
 order.snd.0002;N;Добавление заявки с невалидным лицевым счётом;1;Открыть https://open.kzn.ru/sendorder;Открыта страница Подача заявки
 ;;;2;Перебрать все sendOrderInvalidValues, Enter;Сообщение с msgOrderPersonalAccountInvalid
+order.snd.0003.1;N;Добавление заявки с пустым лицевым счётом;1;Открыть https://open.kzn.ru/sendorder;Открыта страница Подача заявки
+;;sendOrderEmptyPersonalAccount;2;Оставить пустым лицевой счёт, Enter;Сообщение содержит msgOrderPersonalAccountEmpty
+order.snd.0003.2;N;Добавление заявки с пустым телефоном;1;Открыть https://open.kzn.ru/sendorder;Открыта страница Подача заявки
+;;sendOrderEmptyPhone;2;Оставить пустым телефон, Enter;Сообщение содержит msgOrderPhoneEmpty
+order.snd.0003.3;N;Добавление заявки с пустой улицей;1;Открыть https://open.kzn.ru/sendorder;Открыта страница Подача заявки
+;;sendOrderEmptyStreet;2;Оставить пустым улицу, Enter;Сообщение содержит msgOrderStreetEmpty

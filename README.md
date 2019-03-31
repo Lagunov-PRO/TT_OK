@@ -5,7 +5,7 @@
 2. Необходимо покрыть приложение автотестами, используя Java + Selenide.
 Будет плюсом, если будут прикреплены дополнительные артефакты, которые помогли при выполнении тестового задания.
 
-# Дисклеймер
+# Ответ
 
 ## Файлы
  
@@ -14,8 +14,18 @@
 | 1       | Тест‑кейсы  | [TestCases.tsv](TestCases.tsv) == [TestCases.сsv](TestCases.сsv) |
 | 2    | Значения переменных для тест‑кейсов      |   [TestCasesValues.txt](TestCasesValues.txt) |
 
+## Положительные тест-кейсы
+1. Регистрация: [RegistrationPositive.java](/src/test/java/ru/open/kzn/autotests/LoginPositive.java)
+2. Авторизация: [LoginPositive.java](/src/test/java/ru/open/kzn/autotests/LoginPositive.java)
+3. Авторизация через сторонние сервисы: [LoginPositiveThirdPartyServices.java](/src/test/java/ru/open/kzn/autotests/LoginPositiveThirdPartyServices.java)
+4. Отправка заявки: [endOrderPositiveValidFields.java](/src/test/java/ru/open/kzn/autotests/endOrderPositiveValidFields.java)
 
-[RegistrationPositive.java](/src/test/java/ru/open/kzn/autotests/LoginPositive.java)
+## Негативные тест-кейсы: LoginNegative.java
+1. Авторизация: [LoginNegative.java](/src/test/java/ru/open/kzn/autotests/LoginNegative.java)
+2. Отправка заявки: [SendOrderNegativeEmptyRequiredFields.java](/src/test/java/ru/open/kzn/autotests/SendOrderNegativeEmptyRequiredFields.java)
+
+## Логический тест-кейсы: 
+1. Слайдер: [MainPageLogicalSlider.java](/src/test/java/ru/open/kzn/autotests/MainPageLogicalSlider.java)
 
 
 Файл с тест‑кейсами в двух форматах: *.tsv и *.csv <sup>[1](https://github.com/Lagunov-PRO/TT_OK/blob/master/README.md#1)</sup> <br>

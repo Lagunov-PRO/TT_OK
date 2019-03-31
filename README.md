@@ -12,6 +12,7 @@
 ------------ | -------------
 Тест‑кейсы | [TestCases.tsv](TestCases.tsv) == [TestCases.сsv](TestCases.сsv)
 Значения переменных для тест‑кейсов | [TestCasesValues.txt](TestCasesValues.txt)
+ewegwg | [wetwe](TT_OK/src/test/java/ru/open/kzn/autotests/RegistrationPositive.java)
 
 Файл с тест‑кейсами в двух форматах: *.tsv и *.csv <sup>[1](https://github.com/Lagunov-PRO/TT_OK/blob/master/README.md#1)</sup> <br>
 Преимущества *.tsv перед *.xls:

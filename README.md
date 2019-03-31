@@ -18,7 +18,7 @@
 1. Регистрация: [RegistrationPositive.java](/src/test/java/ru/open/kzn/autotests/RegistrationPositive.java)
 2. Авторизация: [LoginPositive.java](/src/test/java/ru/open/kzn/autotests/LoginPositive.java)
 3. Авторизация через сторонние сервисы: [LoginPositiveThirdPartyServices.java](/src/test/java/ru/open/kzn/autotests/LoginPositiveThirdPartyServices.java)
-4. Отправка заявки: [sendOrderPositiveValidFields.java](/src/test/java/ru/open/kzn/autotests/sendOrderPositiveValidFields.java)
+4. Отправка заявки: [SendOrderPositiveValidFields.java](/src/test/java/ru/open/kzn/autotests/SendOrderPositiveValidFields.java)
 
 ## Негативные тест-кейсы:
 1. Авторизация: [LoginNegative.java](/src/test/java/ru/open/kzn/autotests/LoginNegative.java)

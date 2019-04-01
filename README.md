@@ -11,7 +11,7 @@
  
  | id        | Назначение           | Файл  |
 | ------------- |-------------| -----|
-| 1       | Тест‑кейсы  | [TestCases.tsv](TestCases.tsv) == [TestCases.csv](TestCases.csv) |
+| 1       | Тест‑кейсы  | [TestCases.tsv](TestCases.tsv) == [TestCases.csv](https://raw.githubusercontent.com/Lagunov-PRO/TT_OK/master/TestCases.csv) |
 | 2    | Значения переменных для тест‑кейсов      |   [TestCasesValues.txt](TestCasesValues.txt) |
 
 ## Положительные тест-кейсы

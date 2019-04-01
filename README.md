@@ -28,12 +28,11 @@
 1. Слайдер: [MainPageLogicalSlider.java](/src/test/java/ru/open/kzn/autotests/MainPageLogicalSlider.java)
 
 ## Дисклеймер: 
-
-Файл с тест‑кейсами в двух форматах: *.tsv и *.csv <sup>[1](https://github.com/Lagunov-PRO/TT_OK/blob/master/README.md#1)</sup> <br>
-Преимущества *.tsv перед *.xls:
-1. Нативно отображается прямо на гитхабе
-2. Формат текстовой, поэтому дифы и история изменений имеют смысл
-3. Так же открывается и редактируется в Excel <sup>[2](https://github.com/Lagunov-PRO/TT_OK/blob/master/README.md#2)</sup>
+Файл с тест‑кейсами в двух форматах: *.tsv и *.csv: <br>
+* *.tsv удобно просматривать прямо на гитхабе <sup>[1](https://github.com/Lagunov-PRO/TT_OK/blob/master/README.md#1)</sup>
+* *.csv удобнее открывать в Excel <sup>[2](https://github.com/Lagunov-PRO/TT_OK/blob/master/README.md#1)</sup> <br>
+<br>
+Преимущество *.tsv и *.сsv перед *.xls в том, что формат текстовой, поэтому дифы и история изменений имеют смысл
 
 ### Колонки
 #### Именование 	тест‑кейса
@@ -74,14 +73,13 @@
 
 ## Примечания
 ###### 1
-Файл [TestCases.csv](TestCases.csv), не отображается на гитхабе, <br>
-т.к. Excel по-умолчанию разделяет ";", а гитхаб понимает только "," <sup>[2](https://github.com/Lagunov-PRO/TT_OK/blob/master/README.md#1)</sup> <br>
-Если добавить в начало файла sep="," <br>
-То начинает разделять по "," , но гитхаб не понимает эту первую строчку
+[https://help.github.com/en/articles/rendering-csv-and-tsv-data](https://help.github.com/en/articles/rendering-csv-and-tsv-data)
 
 ###### 2
-1. Открыть как > Разбить по столбцам > Разделитель Tab > Кодировка UTF-8
-2. ctrl + A, Формат > Автоподбор ширины столбца
+Файл [TestCases.csv](TestCases.csv), не отображается на гитхабе, <br>
+т.к. Excel по-умолчанию разделяет ";", а гитхаб понимает только ","<br>
+Если добавить в начало файла sep="," <br>
+То начинает разделять по "," , но гитхаб не понимает эту первую строчку
 
 
 

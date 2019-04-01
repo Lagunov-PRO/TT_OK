@@ -117,7 +117,7 @@ public class RegistrationPositive {
         $("#auth").find(byAttribute("data-ui","auth")).click();
         $(By.name("username")).val(timestampEmail).pressTab();
         $(By.name("password")).val(timestampEmailPassword).pressEnter();
-
+        $(("#authInfo")).find((".username")).shouldHave(text(timestampEmail));
 
     }
 

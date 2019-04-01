@@ -62,6 +62,10 @@ public class RegistrationPositive {
         String newUserPassword = "";
 
         open("https://mail.google.com/mail/h/1pq68r75kzvdr/?v%3Dlui");  // По этой ссылке откроется упрощённый интерфейс
+        if ($(By.tagName("title")).getText().equals("Do you really want to use HTML Gmail?")){
+
+            $("#maia-main").find(By.className("maia-button maia-button-secondary")).click();
+        }
         $("#identifierId").setValue(registeredEmail).pressEnter();
         $("#password input").setValue(pwDecode(rawPW)).pressEnter();
 
@@ -116,6 +120,8 @@ public class RegistrationPositive {
         open("https://open.kzn.ru/");
         $("#auth").find(byAttribute("data-ui","auth")).click();
         $(By.name("username")).val(timestampEmail).pressTab();
+        $(By.id("js_nofify")).shouldHave(cssValue("display", "block")).waitUntil(visible, 1000).has(text("Ошибка входа в личный кабинет"));
+        $(By.id("js_nofify")).shouldHave(cssValue("display", "block")).find(By.className("close")).click();
         $(By.name("password")).val(timestampEmailPassword).pressEnter();
         $(("#authInfo")).find((".username")).shouldHave(text(timestampEmail));
 

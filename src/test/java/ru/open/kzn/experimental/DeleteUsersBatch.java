@@ -38,7 +38,7 @@ public class DeleteUsersBatch {
 
         Map newUsersLoginsPasswords = getAllNewUsersLoginsPasswords();
 
-        newUsersLoginsPasswords.forEach((k, v) -> System.out.println(k, v));
+        newUsersLoginsPasswords.forEach((k, v) -> System.out.println(k.toString() + v.toString()));
 
     }
 

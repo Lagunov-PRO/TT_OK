@@ -34,11 +34,11 @@ public class DeleteUsersBatch {
 //        String newUserPassword = getPasswordFromEmail(timestampEmail);
 //        loginNewUser(timestampEmail, newUserPassword);
 //        deleteNewUser(timestampEmail);
-        newUsersLoginsPasswords();
 
 
+        Map newUsersLoginsPasswords = getAllNewUsersLoginsPasswords();
 
-
+        newUsersLoginsPasswords.forEach((k, v) -> System.out.println(k, v));
 
     }
 
@@ -57,8 +57,10 @@ public class DeleteUsersBatch {
         return timestampEmail;
     }
 
-    private static Map newUsersLoginsPasswords() {
-        String newUserPassword = "";
+    private static Map getAllNewUsersLoginsPasswords() {
+
+        Map<String, String> newUsersLoginsPasswords = new HashMap<>();
+
 
         open("https://mail.google.com/mail/h/1pq68r75kzvdr/?v%3Dlui");  // По этой ссылке откроется упрощённый интерфейс
         if ($(By.tagName("title")).getText().equals("Do you really want to use HTML Gmail?")){
@@ -80,7 +82,6 @@ public class DeleteUsersBatch {
 
         int messagesInbox = $$(By.className("ts")).size(); // Определяме кол-во писем
 
-        Map<String, String> newUsersLoginsPasswords = new HashMap<>();
         while (messagesInbox != 0) {
 
             $$(By.className("ts")).get(messagesInbox - 1).click(); // Кликаем на нижнее письмо
@@ -112,8 +113,8 @@ public class DeleteUsersBatch {
             messagesInbox--;  // Уменьшаем индекс письма для перехода к следующему
 
         }
-        for (Map.Entry<String,String> entry : newUsersLoginsPasswords.entrySet())
-            System.out.println(entry.getKey() + "  " + entry.getValue());
+//        for (Map.Entry<String,String> entry : newUsersLoginsPasswords.entrySet())
+//            System.out.println(entry.getKey() + "  " + entry.getValue());
 
         return newUsersLoginsPasswords;
     }

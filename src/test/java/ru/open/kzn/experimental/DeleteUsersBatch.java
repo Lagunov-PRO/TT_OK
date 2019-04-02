@@ -6,8 +6,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import static com.codeborne.selenide.Condition.*;
@@ -27,27 +25,39 @@ public class DeleteUsersBatch {
 
     @Test
     public void deleteAllTimestampUsers() {
-        // login.reg.0000
-
-//        String timestampEmail = generateTimestampEmail();
-//        registerNewUser(timestampEmail);
-//        String newUserPassword = getPasswordFromEmail(timestampEmail);
-//        loginNewUser(timestampEmail, newUserPassword);
-//        deleteNewUser(timestampEmail);
-
 
         Map newUsersLoginsPasswords = getAllNewUsersLoginsPasswords();
 
-        newUsersLoginsPasswords.forEach((k, v) -> System.out.println(k.toString() + v.toString()));
+
+        loginNewUser(newUsersLoginsPasswords);
 
     }
 
-    private static void registerNewUser(String timestampEmail) {
-        open("https://open.kzn.ru/");
-        $("#auth").find(byAttribute("data-ui","registration")).click();
-        $(byAttribute("data-ui", "email")).setValue(timestampEmail).pressEnter();
+    public void loginNewUser(Map newUsersLoginsPasswords) {
+
+        for (Map.Entry<String, String> entry : newUsersLoginsPasswords.entrySet()) {
+
+            String newUserLogin = entry.getKey();
+            String newUserPassword = entry.getValue();
+
+            open("https://open.kzn.ru/");
+            $("#auth").find(byAttribute("data-ui","auth")).click();
+            $(By.name("username")).setValue(newUserLogin);
+            $(By.name("password")).setValue(newUserPassword).pressEnter();
+
+            $(".onesignal-bell-launcher-button").waitUntil(visible, 10000);
+            $(("#onesignal-popover-allow-button")).waitUntil(visible, 5000);
+            $(("#onesignal-popover-allow-button")).click();
+            $(("#onesignal-popover-allow-button")).waitUntil(disappears, 5000);
+            $(".btnExit").click();
+
+        }
+
+//        $(("#js_nofify")).shouldHave(text("Ошибка входа в личный кабинет"));
 
     }
+
+
 
     private static Map getAllNewUsersLoginsPasswords() {
 
@@ -123,6 +133,8 @@ public class DeleteUsersBatch {
         $(("#authInfo")).find((".username")).shouldHave(text(timestampEmail));
 
     }
+
+
 
     private static void deleteNewUser(String timestampEmail) {
 

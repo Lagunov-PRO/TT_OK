@@ -49,14 +49,6 @@ public class DeleteUsersBatch {
 
     }
 
-    private static String generateTimestampEmail() {
-        DateTimeFormatter timestamp = DateTimeFormatter.ofPattern( "HH.mm.ss_dd-MM-yyyy" );
-        LocalDateTime currentDayTime = LocalDateTime.now();
-        String timestampEmail = currentDayTime.format(timestamp);
-        timestampEmail += "@lagunov.pro";
-        return timestampEmail;
-    }
-
     private static Map getAllNewUsersLoginsPasswords() {
 
         Map<String, String> newUsersLoginsPasswords = new HashMap<>();

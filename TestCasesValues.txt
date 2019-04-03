@@ -1,7 +1,7 @@
 registeredEmail = "open.kzn.registered@gmail.com"
 registeredEmailPassword = (телефон как в e-mail)
 
-unregisteredEmail = (HH.mm.ss_dd-MM-yyyy@lagunov.pro)
+unregisteredEmail = "open.kzn.registered@gmail.com"
 unregisteredEmailPassword = (телефон как в e-mail)
 
 timestampEmail = (HH.mm.ss_dd-MM-yyyy@lagunov.pro)
@@ -10,7 +10,7 @@ timestampEmail = (HH.mm.ss_dd-MM-yyyy@lagunov.pro)
 registeredUserLogin = "open.kzn.registered@gmail.com"
 registeredUserPassword = "q6108r"
 
-unregisteredUserLogin = "open.kzn.unregistered@gmail.com"
+unregisteredUserLogin = (HH.mm.ss_dd-MM-yyyy@lagunov.pro)
 unregisteredUserPassword = "ABC123"
 
 sendOrderInvalidValues

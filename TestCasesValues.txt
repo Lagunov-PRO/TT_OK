@@ -1,7 +1,7 @@
 registeredEmail = "open.kzn.registered@gmail.com"
 registeredEmailPassword = (телефон как в e-mail)
 
-unregisteredEmail = "open.kzn.unregistered@gmail.com"
+unregisteredEmail = (HH.mm.ss_dd-MM-yyyy@lagunov.pro)
 unregisteredEmailPassword = (телефон как в e-mail)
 
 timestampEmail = (HH.mm.ss_dd-MM-yyyy@lagunov.pro)
